@@ -1,0 +1,9 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
+ERROR - 2016-03-16 08:00:39 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\vidyanusa_lokal\system\database\drivers\mysql\mysql_driver.php 92
+ERROR - 2016-03-16 08:00:46 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\vidyanusa_lokal\system\database\drivers\mysql\mysql_driver.php 92
+ERROR - 2016-03-16 08:00:56 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\vidyanusa_lokal\system\database\drivers\mysql\mysql_driver.php 92
+ERROR - 2016-03-16 08:00:57 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\vidyanusa_lokal\system\database\drivers\mysql\mysql_driver.php 92
+ERROR - 2016-03-16 08:02:12 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\vidyanusa_lokal\system\database\drivers\mysql\mysql_driver.php 92
+ERROR - 2016-03-16 08:02:12 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\vidyanusa_lokal\system\database\drivers\mysql\mysql_driver.php 92
+ERROR - 2016-03-16 08:02:21 --> Severity: 8192  --> mysql_pconnect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead C:\xampp\htdocs\vidyanusa_lokal\system\database\drivers\mysql\mysql_driver.php 92

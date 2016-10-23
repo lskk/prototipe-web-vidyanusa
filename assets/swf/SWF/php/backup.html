@@ -1,0 +1,148 @@
+<?php
+	include_once "connect.php";
+	/*
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	*/
+	/*Prepare query*/
+	$sql = "SELECT p.id
+				  ,p.nama
+				  ,p.kata_sandi
+				  ,p.email
+				  ,p.nama_karakter
+				  ,p.jenis_kelamin
+				  ,p.exp_point
+				  ,p.gold_point
+				  ,ps.id_peta
+				  ,ps.id_peta_sub
+				  ,ps.posisi_x
+				  ,ps.posisi_y
+			FROM tb_m_pengguna p
+				,tb_r_posisi ps
+			WHERE p.id = ps.id_pengguna";
+	/*Eksekusi query*/
+	$query = mysql_query($sql);
+
+	/*Fetch data*/
+	$counter = mysql_num_rows($query);
+
+	if($counter > 0){
+
+		/*Create XML*/
+		header("Content-Type: text/xml");
+		$dom = new DOMDocument('1.0');
+
+		$root = $dom->createElement("players");
+		$dom->appendChild($root);
+		$dom->formatOutput=true;
+
+		while($data = mysql_fetch_array($query)){
+			$id = $data['id'];
+			$nama = $data['nama'];
+			$kata_sandi = $data['kata_sandi'];
+			$email = $data['email'];
+			$nama_karakter = $data['nama_karakter'];
+			$jenis_kelamin = $data['jenis_kelamin'];
+			$exp_point = $data['exp_point'];
+			$gold_point = $data['gold_point'];
+			$id_peta = $data['id_peta'];
+			$id_peta_sub = $data['id_peta_sub'];
+			$posisi_x = $data['posisi_x'];
+			$posisi_y = $data['posisi_y'];
+
+			/*Item*/
+	     	$item = $dom->createElement("player");
+     		$root->appendChild($item);
+
+     		/*Attribute ID*/
+			$attr = $dom->createAttribute("id");
+   			$item->appendChild($attr);
+   			/*Value*/
+       		$attrValue = $dom->createTextNode($id);
+   			$attr->appendChild($attrValue);
+
+     		/*Attribute NAMA*/
+			$attr = $dom->createAttribute("nama");
+   			$item->appendChild($attr);
+   			/*Value*/
+       		$attrValue = $dom->createTextNode($nama);
+   			$attr->appendChild($attrValue);
+
+     		/*Attribute KATA_SANDI*/
+			$attr = $dom->createAttribute("kata_sandi");
+   			$item->appendChild($attr);
+   			/*Value*/
+       		$attrValue = $dom->createTextNode($kata_sandi);
+   			$attr->appendChild($attrValue);
+
+     		/*Attribute EMAIL*/
+			$attr = $dom->createAttribute("email");
+   			$item->appendChild($attr);
+   			/*Value*/
+       		$attrValue = $dom->createTextNode($email);
+   			$attr->appendChild($attrValue);
+
+   			/*Attribute JENIS_KELAMIN*/
+			$attr = $dom->createAttribute("nama_karakter");
+   			$item->appendChild($attr);
+   			/*Value*/
+       		$attrValue = $dom->createTextNode($nama_karakter);
+   			$attr->appendChild($attrValue);
+
+   			/*Attribute JENIS_KELAMIN*/
+			$attr = $dom->createAttribute("jenis_kelamin");
+   			$item->appendChild($attr);
+   			/*Value*/
+       		$attrValue = $dom->createTextNode($jenis_kelamin);
+   			$attr->appendChild($attrValue);
+
+     		/*Attribute EXP_POINT*/
+			$attr = $dom->createAttribute("exp_point");
+   			$item->appendChild($attr);
+   			/*Value*/
+       		$attrValue = $dom->createTextNode($exp_point);
+   			$attr->appendChild($attrValue);   			   			
+
+     		/*Attribute GOLD_POINT*/
+			$attr = $dom->createAttribute("gold_point");
+   			$item->appendChild($attr);
+   			/*Value*/
+       		$attrValue = $dom->createTextNode($gold_point);
+   			$attr->appendChild($attrValue);
+
+     		/*Attribute ID_PETA*/
+			$attr = $dom->createAttribute("id_peta");
+   			$item->appendChild($attr);
+   			/*Value*/
+       		$attrValue = $dom->createTextNode($id_peta);
+   			$attr->appendChild($attrValue);
+
+   			/*Attribute ID_PETA_SUB*/
+			$attr = $dom->createAttribute("id_peta_sub");
+   			$item->appendChild($attr);
+   			/*Value*/
+       		$attrValue = $dom->createTextNode($id_peta_sub);
+   			$attr->appendChild($attrValue);
+
+     		/*Attribute POSISI_X*/
+			$attr = $dom->createAttribute("posisi_x");
+   			$item->appendChild($attr);
+   			/*Value*/
+       		$attrValue = $dom->createTextNode($posisi_x);
+   			$attr->appendChild($attrValue);
+
+   			/*Attribute POSISI_Y*/
+			$attr = $dom->createAttribute("posisi_y");
+   			$item->appendChild($attr);
+   			/*Value*/
+       		$attrValue = $dom->createTextNode($posisi_y);
+   			$attr->appendChild($attrValue);
+
+		}
+
+		print $dom->saveXML();
+	}
+	/*print "nama=$nama";*/
+	/*Close connection*/
+	mysql_close();
+?>
